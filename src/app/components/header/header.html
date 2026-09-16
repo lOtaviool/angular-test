@@ -1,0 +1,17 @@
+
+<mat-toolbar class="header-toolbar">
+    <div class="logo-container">
+        <img src="image.png" alt="Logo Sccon" height="40"/>
+    </div>
+
+    <!-- <span class="spacer"></span> -->
+
+    <div class="nav-container">
+        <button matButton class="btn-custom" routerLink="/">Home</button>
+
+        <button matButton class="btn-custom" [matMenuTriggerFor]="menu">Endereço</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item class="btn-custom-item" routerLink="/address">Buscar Endereços</button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
