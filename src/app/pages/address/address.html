@@ -1,1 +1,6 @@
-<p style="font-weight: bold;">Address works!</p>
+<div [ngStyle]="{display: 'grid', gap: '5px'}">
+    <span>Busca de Endereços</span>
+
+    <app-search-data placeholder="Buscar por CEP:" (search)="onSearch($event)"></app-search-data>
+    <app-list-data [list_address]="address$ | async"></app-list-data>
+</div>

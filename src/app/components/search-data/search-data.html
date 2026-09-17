@@ -1,1 +1,16 @@
+<div>
+    <mat-form-field appearance="outline" subscriptSizing="dynamic">
+        <mat-label>{{placeholder}}</mat-label>
+        <input
+            matInput
+            [formControl]="searchTerm"
+        />
 
+        <mat-error *ngIf="searchTerm.hasError('required')">O CEP é obrigatório</mat-error>
+        <mat-error *ngIf="searchTerm.hasError('pattern')">Digite um CEP válido</mat-error>
+
+        
+    </mat-form-field>
+    
+    <button matButton class="btn-custom" (click)="onSearch()">Buscar</button>
+</div>
