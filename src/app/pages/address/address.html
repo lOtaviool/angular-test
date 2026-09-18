@@ -1,6 +1,5 @@
 <div [ngStyle]="{display: 'grid', gap: '5px'}">
-    <span>Busca de Endereços</span>
-
+    <span class="address-title">Busca de Endereços</span>
     <app-search-data placeholder="Buscar por CEP:" (search)="onSearch($event)"></app-search-data>
-    <app-list-data [list_address]="address$ | async"></app-list-data>
+    <app-list-data [list_address]="address$ | async" (delete)="onDelete($event)"></app-list-data>
 </div>

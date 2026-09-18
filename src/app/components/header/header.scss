@@ -1,11 +1,11 @@
 .header-toolbar {
-    background-color: #132745 !important;
-    color: #ffffff;
+    background-color: #FFF !important;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 0 24px;
+    padding: 6px 24px;
     height: 64px;
+    gap: 100px;
+    margin-bottom: 20px;
 
     .logo-container {
         display: flex;
@@ -24,6 +24,10 @@
         align-items: center;
         gap: 12px;
         padding: 12px;
+        width: 100%;
+        background-color: #132745;
+        border-radius: 6px;
+        max-height: 35px;
     }
 }
 
@@ -32,7 +36,8 @@
     background-color: #D7DBDD !important;
     color: #132745 !important;
     border-radius: 6px !important;
-    font-weight: 600;
+    border: 1px solid #cacdce ;
+    width: 200px;
     padding: 0 16px;
     transition: background-color 0.2s ease-in-out;
 

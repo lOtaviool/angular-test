@@ -56,15 +56,8 @@ export class AddressService {
   private getAllFromDatabase(): Promise<StoredAddress[]> {
     return this.openDataBase().then(db => {
       return new Promise<StoredAddress[]>((resolve, reject) => {
-
-        const transaction = db.transaction(
-          this.storeName,
-          'readonly'
-        );
-
-        const store =
-          transaction.objectStore(this.storeName);
-
+        const transaction = db.transaction(this.storeName,'readonly');
+        const store = transaction.objectStore(this.storeName);
         const request = store.getAll();
 
         request.onsuccess = () => {
@@ -95,21 +88,10 @@ export class AddressService {
   saveNewAddress(address: StoredAddress): Observable<StoredAddress> {
     return from(
       this.openDataBase().then(db => {
-
         return new Promise<StoredAddress>(
           (resolve, reject) => {
-
-            const transaction =
-              db.transaction(
-                this.storeName,
-                'readwrite'
-              );
-
-            const store =
-              transaction.objectStore(
-                this.storeName
-              );
-
+            const transaction = db.transaction(this.storeName,'readwrite');
+            const store = transaction.objectStore(this.storeName);
             const request = store.add(address);
 
             request.onsuccess = () => {
@@ -137,28 +119,15 @@ export class AddressService {
     );
   }
 
-  delete(id: number): Observable<void> {
+  deleteAddress(id: number): Observable<void> {
     return from(
       this.openDataBase().then(db => {
-
-        return new Promise<void>(
-          (resolve, reject) => {
-
-            const transaction =
-              db.transaction(
-                this.storeName,
-                'readwrite'
-              );
-
-            const store =
-              transaction.objectStore(
-                this.storeName
-              );
-
+        return new Promise<void>((resolve, reject) => {
+            const transaction = db.transaction(this.storeName, 'readwrite');
+            const store = transaction.objectStore(this.storeName);
             const request = store.delete(id);
 
             request.onsuccess = () => {
-
               this.getAllFromDatabase()
                 .then(addresses => {
                   this.addressSubject.next(

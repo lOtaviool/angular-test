@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { ListData } from '../../components/list-data/list-data';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ListData } from '../../components/list-data/list-data';
     MatInputModule,
     MatIconModule,
     MatFormFieldModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule, 
   ],
   exports: [Address]
 })

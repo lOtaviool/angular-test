@@ -15,7 +15,7 @@ export class SearchData implements OnInit {
   searchTerm = new FormControl('', {
     nonNullable: true,
     validators:[
-      Validators.required,
+      // Validators.required,
       Validators.pattern(/^\d{5}-?\d{3}$/)
     ]
   })
@@ -25,6 +25,11 @@ export class SearchData implements OnInit {
   ngOnInit(): void {}
 
   onSearch(): void {
+    if (this.searchTerm.invalid || this.searchTerm?.value === '') {
+      this.searchTerm.markAsTouched();
+      return;
+    }
+
     this.search.emit(this.searchTerm?.value)
   }
 

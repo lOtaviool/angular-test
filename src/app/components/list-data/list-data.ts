@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { StoredAddress } from '../../interfaces/address';
+import { formatDate } from '../../utils/formatDate';
 
 @Component({
   selector: 'app-list-data',
@@ -9,13 +10,17 @@ import { StoredAddress } from '../../interfaces/address';
 })
 export class ListData implements OnInit {
   displayedColumns = ['cep', 'address', 'date', 'actions'];
+  formatDate = formatDate;
   @Input() list_address: StoredAddress[] | null = [];
-  // @Output() search = new EventEmitter<string>();
+  @Output() delete = new EventEmitter<number>();
 
-  constructor(){
-    console.log(this.list_address)
-  }
+
+  constructor(){}
 
   ngOnInit(): void {}
+
+  onDelete(id: number): void {
+    this.delete.emit(id);
+  }
 
 }

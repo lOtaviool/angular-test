@@ -39,4 +39,15 @@ export class Address implements OnInit {
     });
   }
 
+  onDelete(id: number): void {
+    this.addressService.deleteAddress(id).subscribe({
+      error: error => {
+        console.error(
+          'Erro ao excluir endereço:',
+          error
+        );
+      }
+    });
+  }
+
 }
