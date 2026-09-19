@@ -10,6 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { ListData } from '../../components/list-data/list-data';
 import { MatButtonModule } from '@angular/material/button';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -25,8 +26,12 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatFormFieldModule,
     MatTableModule,
-    MatButtonModule, 
+    MatButtonModule,
+    NgxMaskDirective
   ],
-  exports: [Address]
+  exports: [Address],
+  providers:[
+    provideNgxMask()
+  ]
 })
 export class AddressModule {}

@@ -7,4 +7,5 @@ export interface StoredAddress{
     localidade?: string;
     uf?: string;
     date?: Date;
+    erro?: boolean;
 }
